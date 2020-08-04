@@ -3,17 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
-    />
+    <link rel="stylesheet" type="text/css" href="./assets/js/myStyle.css">
     <title>Address book</title>
   </head>
   <body>
     <h1>Contacts</h1>
     <button id="add-contact">Add Contact</button>
-    
-      <form id="new-contact-form">
+        
+        <form id="new-contact-form">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" />
         <label for="email">Email</label>
@@ -27,17 +24,9 @@
         <label for="twitter">Twitter</label>
         <input id="twitter" name="twitter" type="text" />
         <input id="submit" type="submit" value="Save contact" />
-      </form>
-    </div>
-    <div class="ui styled accordian">
-		<div class="active title">
-			<i class="dropdown icon"></i>
-			Added contacts
-		  </div>
-		  <div class="active content">
-	  <div id="contact-list">Thomas 0700 101010</div>
-	</div>
-    </div>
-    <script src="./assets/js/app.js"></script>
+      
+    
+    <div id="contact-list"> Thomas 0700 101010</div>
+	  <script src="./assets/js/app.js"></script>
   </body>
 </html>

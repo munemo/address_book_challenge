@@ -1,3 +1,4 @@
+
 const  storage = window.localStorage
 
 const  renderContacts = () => {
@@ -24,6 +25,7 @@ const  renderContacts = () => {
 	  div.innerHTML = '<p>You have no contacts in your address book</p>'
 	}
 }
+
 document.addEventListener('DOMContentLoaded', () => {
 	renderContacts()
 	const  contactForm = document.getElementById('new-contact-form')
@@ -54,3 +56,31 @@ document.addEventListener('DOMContentLoaded', () => {
 		contactForm.reset()
    })
 })
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const  contactForm = document.getElementById('new-contact-form')
+	const  VisibilityButton = document.getElementById('add-contact')
+  contactForm.style.display = 'none'
+  
+  VisibilityButton.addEventListener('click', () => {
+    if (contactForm.style.display === '') 
+    {
+			contactForm.style.display = 'none'
+    } 
+    else
+     {
+			contactForm.style.display = ''
+		}
+
+  });
+
+  contactForm.addEventListener('submit', event  => {
+    event.preventDefault()
+    
+    const { name, email, phone, company, notes, twitter } = contactForm.elements
+  });
+
+});
+
