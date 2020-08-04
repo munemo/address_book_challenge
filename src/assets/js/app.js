@@ -1,3 +1,4 @@
+
 const  storage = window.localStorage
 
 const  renderContacts = () => {
@@ -23,34 +24,63 @@ const  renderContacts = () => {
 	} else {
 	  div.innerHTML = '<p>You have no contacts in your address book</p>'
 	}
-    document.addEventListener('DOMContentLoaded', () => {
-        renderContacts()
-        const  contactForm = document.getElementById('new-contact-form')
-        contactForm.addEventListener('submit', event  => {
-            event.preventDefault()
-    
-            // 1. Read all the input fields and get their values
-            const { name, email, phone, company, notes, twitter } = contactForm.elements
-    
-            const  contact = {
-                name:  name.value,
-                email:  email.value,
-                phone:  phone.value,
-                company:  company.value,
-                notes:  notes.value,
-                twitter:  twitter.value,
-            }
-    
-            console.log(contact)
-    
-            let  contacts = JSON.parse(storage.getItem('contacts')) || []
-    
-            contacts.push(contact)
-    
-            // 2. Save them to our storage
-            storage.setItem('contacts', JSON.stringify(contacts))
-            renderContacts()
-            contactForm.reset()
-       })
-    })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+	renderContacts()
+	const  contactForm = document.getElementById('new-contact-form')
+	contactForm.addEventListener('submit', event  => {
+		event.preventDefault()
+
+		// 1. Read all the input fields and get their values
+		const { name, email, phone, company, notes, twitter } = contactForm.elements
+
+		const  contact = {
+			name:  name.value,
+			email:  email.value,
+			phone:  phone.value,
+			company:  company.value,
+			notes:  notes.value,
+			twitter:  twitter.value,
+		}
+
+		console.log(contact)
+
+		let  contacts = JSON.parse(storage.getItem('contacts')) || []
+
+		contacts.push(contact)
+
+		// 2. Save them to our storage
+		storage.setItem('contacts', JSON.stringify(contacts))
+		renderContacts()
+		contactForm.reset()
+   })
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const  contactForm = document.getElementById('new-contact-form')
+	const  VisibilityButton = document.getElementById('add-contact')
+  contactForm.style.display = 'none'
+  
+  VisibilityButton.addEventListener('click', () => {
+    if (contactForm.style.display === '') 
+    {
+			contactForm.style.display = 'none'
+    } 
+    else
+     {
+			contactForm.style.display = ''
+		}
+
+  });
+
+  contactForm.addEventListener('submit', event  => {
+    event.preventDefault()
+    
+    const { name, email, phone, company, notes, twitter } = contactForm.elements
+  });
+
+});
+
